@@ -121,21 +121,24 @@ namespace LastSignal.Bootstrap
             var travel = radarGo.AddComponent<LastSignal.Signals.TravelController>();
             _radar = radarGo.AddComponent<LastSignal.Signals.RadarUI>();
 
+            // Act 1: chỉ xác tàu Comms có thật (Medical/Cargo là Act 2 → gate minAct=2).
+            // SIG-114 = gần/an toàn (fuel cell). SIG-227 = xa hơn/nguy hơn (story clue).
             db.allSignals.Add(MakeSignal("SIG-114", "Tín hiệu yếu — dải tần 121.5", 0.25f, 0.15f,
                 LastSignal.Signals.SignalReward.FuelCell, 15f, 12f, "DeadShip_Comms"));
             db.allSignals.Add(MakeSignal("SIG-227", "Xung lặp — nguồn không rõ", 0.55f, 0.45f,
                 LastSignal.Signals.SignalReward.StoryClue, 30f, 25f, "DeadShip_Comms"));
-            // (DeadShip_Archive chưa dựng -> tạm trỏ về DeadShip_Comms để mọi tín hiệu chạy được.)
-            db.allSignals.Add(MakeSignal("SIG-303", "Tiếng vọng xa — rất yếu", 0.85f, 0.7f,
-                LastSignal.Signals.SignalReward.RadarUpgrade, 50f, 40f, "DeadShip_Comms"));
 
-            // Act 2: xác tàu y tế — tín hiệu xa hơn, chi phí cao hơn.
-            db.allSignals.Add(MakeSignal("SIG-408", "Nhịp tim nhân tạo — dải y sinh", 0.72f, 0.55f,
-                LastSignal.Signals.SignalReward.StoryClue, 45f, 35f, "DeadShip_Medical"));
+            // Act 2: xác tàu y tế — chỉ lộ từ act 2. Tín hiệu xa hơn, chi phí cao hơn.
+            var medical = MakeSignal("SIG-408", "Nhịp tim nhân tạo — dải y sinh", 0.72f, 0.55f,
+                LastSignal.Signals.SignalReward.StoryClue, 45f, 35f, "DeadShip_Medical");
+            medical.minAct = 2;
+            db.allSignals.Add(medical);
 
-            // Act 2: xác tàu chở hàng — xa nhất, chi phí cao nhất.
-            db.allSignals.Add(MakeSignal("SIG-511", "Đèn hiệu di tản — dải hàng hóa", 0.8f, 0.6f,
-                LastSignal.Signals.SignalReward.StoryClue, 50f, 40f, "DeadShip_Cargo"));
+            // Act 2: xác tàu chở hàng — chỉ lộ từ act 2. Xa nhất, chi phí cao nhất.
+            var cargo = MakeSignal("SIG-511", "Đèn hiệu di tản — dải hàng hóa", 0.8f, 0.6f,
+                LastSignal.Signals.SignalReward.StoryClue, 50f, 40f, "DeadShip_Cargo");
+            cargo.minAct = 2;
+            db.allSignals.Add(cargo);
 
             // Act 3: khu ở tàu di cư — chỉ lộ từ act 3 (twist bắt đầu vỡ). Loot #3 (module vá vỏ).
             var residential = MakeSignal("SIG-604", "Nhịp sinh hoạt — dải dân dụng cũ", 0.78f, 0.4f,

@@ -25,8 +25,8 @@ namespace LastSignal.Player
         const string clipName = "SitToType"; // tên state trong Animation (legacy) component
 
         [Header("Đặt model so với camera (near-clip cắt thân)")]
-        [Tooltip("Vị trí model (local so với cameraHolder). Đã canh play-mode: tay lọt khung, đặt trên bàn.")]
-        public Vector3 modelLocalPos = new Vector3(-0.03f, -0.92f, 0.00f);
+        [Tooltip("Vị trí model (local so với cameraHolder). Canh cho aspect HẸP 4:3 (tay lọt khung ở mọi tỉ lệ; FOV dọc cố định → aspect hẹp đẩy vật 2 bên ra mép).")]
+        public Vector3 modelLocalPos = new Vector3(-0.03f, -0.90f, 0.10f);
         public Vector3 modelLocalEuler = Vector3.zero;
         [Tooltip("Scale model. Exo gốc ~1.96m (cả người); near-clip cắt thân, chỉ chừa tay.")]
         public float modelScale = 1f;

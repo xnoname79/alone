@@ -1,0 +1,96 @@
+# ==============================================================
+# Unity .gitignore — The Last Signal
+# Chỉ commit: Assets/, Packages/, ProjectSettings/
+# Bỏ qua mọi thứ Unity tự sinh lại (Library, Logs, Temp, ...).
+# ==============================================================
+
+# ----- Thư mục Unity tự sinh -----
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+
+# Recorder / Asset Store tools tự tạo
+/[Aa]ssets/[Aa]ssetStoreTools*
+/[Aa]ssets/[Pp]lugins/[Ee]ditor/[Jj]etBrains*
+/[Rr]ecordings/
+
+# ----- File build / DLL / debug -----
+*.apk
+*.aab
+*.unitypackage
+*.app
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D generated meta files cho thư mục bị bỏ qua
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D generated file trên macOS
+.DS_Store
+
+# Crashlytics generated file
+crashlytics-build.properties
+
+# Cache của Packages
+/[Aa]ssets/[Aa]ddressableAssetsData/*/*.bin*
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# ==============================================================
+# Assets/ NẶNG (asset pack + model + texture, ~4.5G) KHÔNG lên git.
+# Sẽ up Google Drive riêng; ai build phải tải về đặt vào Assets/.
+# CHỈ giữ code + scene + config text nhẹ (whitelist dưới).
+# ==============================================================
+# Bỏ hết Assets/ ...
+/[Aa]ssets/*
+# ... TRỪ code + scene + config game tự làm (comment PHẢI ở dòng riêng —
+# git coi text sau pattern là 1 phần pattern, phá match).
+# Scripts — 44 file .cs logic game
+!/[Aa]ssets/[Ss]cripts/
+# Editor — tool tự viết (ModelPrefabBuilder, SceneFloorPlan)
+!/[Aa]ssets/[Ee]ditor/
+# Scenes — scene hand-authored (Cabin, DeadShip...)
+!/[Aa]ssets/[Ss]cenes/
+# Resources — narrative JSON + config runtime
+!/[Aa]ssets/[Rr]esources/
+# Materials/Prefabs/Audio/VFX/UI/Art — asset game tự tạo (nhẹ)
+!/[Aa]ssets/[Mm]aterials/
+!/[Aa]ssets/[Pp]refabs/
+!/[Aa]ssets/[Aa]udio/
+!/[Aa]ssets/[Vv][Ff][Xx]/
+!/[Aa]ssets/[Uu][Ii]/
+!/[Aa]ssets/[Aa]rt/
+# .meta thư mục cấp 1 (Unity cần để nhận diện folder)
+!/[Aa]ssets/*.meta
+# Trong whitelist vẫn chặn file nặng lỡ lọt (fbx/hdr/tga/pdf)
+/[Aa]ssets/**/*.fbx
+/[Aa]ssets/**/*.hdr
+/[Aa]ssets/**/*.tga
+*.pdf
+
+# ----- IDE / OS lặt vặt -----
+.vs/
+.vscode/
+.idea/
+Thumbs.db

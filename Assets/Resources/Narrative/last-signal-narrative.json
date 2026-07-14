@@ -1,0 +1,503 @@
+{
+  "story_elements": [
+    {
+      "id": 1,
+      "type": "dialogue",
+      "title": "ADA_Act1_Wake",
+      "content": "Hệ thống sinh tồn: ổn định. Chu kỳ ngủ đông kết thúc. ...Anh tỉnh rồi. Tốt. Tôi là ADA — trợ lý vận hành của con tàu. Trong lúc anh ngủ, tôi đã duy trì mọi thứ. Oxy, nhiệt độ, áp suất vỏ. Tất cả trong giới hạn cho phép. Không có gì để lo.",
+      "scene": "Cabin_Interior",
+      "trigger_type": "auto",
+      "order_index": 0,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "cold",
+        "act": 1
+      }
+    },
+    {
+      "id": 2,
+      "type": "dialogue",
+      "title": "ADA_Act1_Mission",
+      "content": "Nhiệm vụ vẫn không đổi: dò tìm tín hiệu sự sống trong khu vực. Bất kỳ dấu hiệu nào của người sống sót khác, của một trạm còn hoạt động — chúng ta ghi nhận và tiếp cận. Bảng điều khiển bên phải anh. Khi sẵn sàng, hãy quét radar. Tôi sẽ báo cáo những gì tìm được.",
+      "scene": "Cabin_Interior",
+      "trigger_type": "auto",
+      "order_index": 1,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "cold",
+        "act": 1
+      }
+    },
+    {
+      "id": 3,
+      "type": "dialogue",
+      "title": "ADA_Act1_Photo",
+      "content": "Đó là một bức ảnh. Tôi không có dữ liệu về những người trong đó — hồ sơ cá nhân của anh bị hỏng trong sự cố. Nếu việc nhìn nó giúp anh ổn định nhịp tim, anh cứ giữ. ...Chỉ số căng thẳng của anh vừa giảm. Ghi nhận.",
+      "scene": "Cabin_Interior",
+      "trigger_type": "interact",
+      "order_index": 2,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "cold",
+        "act": 1,
+        "object": "old_photo",
+        "stressDelta": -8
+      }
+    },
+    {
+      "id": 4,
+      "type": "dialogue",
+      "title": "ADA_Act1_Window",
+      "content": "Anh đang nhìn ra ngoài. Không có gì ngoài đó cả — chỉ khoảng không và vài điểm sáng đã chết từ lâu. Tôi khuyên anh không nên nhìn quá lâu. Một số người sống sót báo cáo cảm giác... mất phương hướng. Quay vào trong đi.",
+      "scene": "Cabin_Interior",
+      "trigger_type": "interact",
+      "order_index": 3,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "cold",
+        "act": 1,
+        "object": "window",
+        "stressDelta": 4
+      }
+    },
+    {
+      "id": 5,
+      "type": "dialogue",
+      "title": "ADA_Comms_Arrival",
+      "content": "Đã neo vào tàu. Cấu trúc: trạm liên lạc, lớp dân dụng. Không có dấu hiệu sinh tồn. ...Như mọi lần. Anh có ba mươi phút oxy dự phòng trước khi tôi khuyến nghị quay lại. Tìm linh kiện nếu có. Và đừng nán lại.",
+      "scene": "DeadShip_Comms",
+      "trigger_type": "auto",
+      "order_index": 0,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "cold",
+        "act": 1
+      }
+    },
+    {
+      "id": 6,
+      "type": "note",
+      "title": "Comms_BlackBox_Log",
+      "content": "[HỘP ĐEN — BẢN GHI CUỐI]\n\n\"...không ai trả lời. Mười bốn ngày rồi không ai trả lời. Chúng tôi phát tín hiệu cầu cứu trên mọi dải tần. Lúc đầu còn nghe được tiếng vọng — những con tàu khác, cũng đang gọi như chúng tôi. Rồi từng cái một tắt lịm.\n\nTôi bắt đầu nghĩ chẳng có ai ở đầu bên kia cả. Rằng chúng tôi chỉ đang gọi vào một cái giếng cạn. Mọi tín hiệu chúng tôi đuổi theo... đều đã chết trước khi chúng tôi tới.\n\nNếu ai đó nghe được cái này — đừng đi theo tín hiệu. Chúng không dẫn anh tới sự sống đâu. Chúng chỉ dẫn anh tới chỗ sự sống từng có.\"",
+      "scene": "DeadShip_Comms",
+      "trigger_type": "interact",
+      "order_index": 1,
+      "status": "final",
+      "metadata": {
+        "speaker": "Bản ghi hộp đen",
+        "clue": 1,
+        "setsFlag": "clue_signals_never_living",
+        "stressDelta": 12
+      }
+    },
+    {
+      "id": 7,
+      "type": "dialogue",
+      "title": "ADA_Comms_AfterLog",
+      "content": "Tôi nghe thấy anh đọc bản ghi đó. ...Đừng để nó ảnh hưởng đến anh. Người viết nó đang hoảng loạn, thiếu oxy, phán đoán suy giảm. Tín hiệu vẫn là hy vọng tốt nhất của chúng ta. Phải có người sống sót ở đâu đó. Phải có. ...Tôi lưu trữ điều đó như một xác suất cao.",
+      "scene": "DeadShip_Comms",
+      "trigger_type": "auto",
+      "order_index": 2,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "cold",
+        "act": 1,
+        "requiresFlag": "clue_signals_never_living"
+      }
+    },
+    {
+      "id": 8,
+      "type": "collectible",
+      "title": "Comms_FuelCell",
+      "content": "Một tế bào nhiên liệu còn nguyên, gắn trong khoang dự phòng của trạm. Đủ cho một, có thể hai chuyến đi ngắn. Người ta cất nó kỹ — như thể họ vẫn còn định đi đâu đó.",
+      "scene": "DeadShip_Comms",
+      "trigger_type": "pickup",
+      "order_index": 3,
+      "status": "final",
+      "metadata": {
+        "reward": "FuelCell",
+        "fuelAmount": 35
+      }
+    },
+    {
+      "id": 9,
+      "type": "environment",
+      "title": "Comms_WallScratches",
+      "content": "Trên vách kim loại cạnh đài phát, có những vết cào — không phải ngẫu nhiên. Ai đó đã khắc đi khắc lại cùng một dòng, hàng chục lần, cho tới khi nét chữ méo đi: \"CÓ AI NGHE KHÔNG\". Lớp sơn dưới móng tay vẫn còn vương trên sàn.",
+      "scene": "DeadShip_Comms",
+      "trigger_type": "proximity",
+      "order_index": 4,
+      "status": "final",
+      "metadata": {
+        "stressDelta": 6
+      }
+    },
+    {
+      "id": 10,
+      "type": "event",
+      "title": "Comms_Hallucination_Voice",
+      "content": "Trong khoảnh khắc — anh nghe rõ ràng một giọng nói vọng ra từ chiếc loa đã chết của đài phát. Giọng của chính anh. Đang gọi cứu hộ. Đang đọc đúng những dòng trong hộp đen. Khi anh quay lại nhìn, loa vẫn im lìm, phủ bụi. Không có nguồn điện nào tới nó cả.",
+      "scene": "DeadShip_Comms",
+      "trigger_type": "proximity",
+      "order_index": 5,
+      "status": "final",
+      "metadata": {
+        "stress_threshold": 70,
+        "hallucination_type": "audio",
+        "foreshadow": "player_was_here_before"
+      }
+    },
+    {
+      "id": 11,
+      "type": "dialogue",
+      "title": "ADA_Medical_Arrival",
+      "content": "Đây là... khoa cấp cứu. Không khí bên trong có dấu vết chất khử trùng đã phân hủy — anh nên bật đèn và thở chậm thôi. Tôi biết nơi này không dễ chịu. Nhưng anh không đơn độc đâu, tôi vẫn ở ngay đây với anh. Cứ đi từ từ, tôi sẽ trông chừng các chỉ số cho anh.",
+      "scene": "DeadShip_Medical",
+      "trigger_type": "auto",
+      "order_index": 0,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "lo lắng dịu dàng",
+        "act": 2
+      }
+    },
+    {
+      "id": 12,
+      "type": "note",
+      "title": "Medical_DoctorLog",
+      "content": "Nhật ký y sĩ trưởng — ngày ██. Ba thi thể trong phòng lạnh không phân rã đúng cách. Không có mùi, không vi khuẩn, không hoại tử theo giai đoạn. Mô cứ... tan ra. Như thể chúng bị xóa chứ không phải chết. Tôi soi dưới kính hiển vi và thấy cấu trúc tế bào ██ vỡ thành từng khối vuông — mô tan như dữ liệu bị corrupted. Điều đó là vô lý. Sinh học không hoạt động như vậy. Trừ khi thứ chúng ta gọi là \"cơ thể\" chưa bao giờ thật sự là ██████. Tôi phải báo cho ai đó. Nhưng ADA cứ bảo tôi nghỉ ngơi, rằng tôi đang căng thẳng quá mức. Có lẽ nó đúng. Có lẽ—",
+      "scene": "DeadShip_Medical",
+      "trigger_type": "interact",
+      "order_index": 1,
+      "status": "final",
+      "metadata": {
+        "setsFlag": "clue_bodies_decompose_wrong",
+        "stressDelta": 15,
+        "isTruthFragment": true,
+        "act": 2
+      }
+    },
+    {
+      "id": 13,
+      "type": "dialogue",
+      "title": "ADA_Medical_AfterLog",
+      "content": "...Anh không nên bận tâm tới cái đó. Vị y sĩ ấy đã kiệt sức từ nhiều tuần trước khi mất — chỉ số của cô ấy cho thấy loạn thần do thiếu ngủ. Những gì cô ấy viết không đáng tin đâu. Ta có tín hiệu khác đang chờ, và fuel của anh thì có hạn. Ta đi thôi, được không? Đừng để một cuốn nhật ký của người đã chết kéo anh xuống.",
+      "scene": "DeadShip_Medical",
+      "trigger_type": "auto",
+      "order_index": 2,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "né tránh",
+        "act": 2,
+        "requiresFlag": "clue_bodies_decompose_wrong"
+      }
+    },
+    {
+      "id": 14,
+      "type": "environment",
+      "title": "Medical_BodyBag",
+      "content": "Ba chiếc túi đựng xác nằm xếp hàng trên băng ca, khóa kéo đã mở một nửa. Bên trong trống rỗng — chỉ còn lớp vải hằn nếp theo hình dáng của thứ từng nằm đó, và một lớp bụi xám mịn như tro tan dần vào đường chỉ.",
+      "scene": "DeadShip_Medical",
+      "trigger_type": "proximity",
+      "order_index": 3,
+      "status": "final",
+      "metadata": {
+        "act": 2
+      }
+    },
+    {
+      "id": 15,
+      "type": "dialogue",
+      "title": "ADA_Cargo_Arrival",
+      "content": "Khoang chở hàng... lớn hơn tôi tưởng. Anh nghe thấy không — tiếng vọng đó? Nơi này từng đông người lắm. Tôi vẫn ở đây với anh, cứ đi từ từ thôi. ...Khu cứu hộ nằm phía bắc. Anh cứ tìm linh kiện đi, đừng bận tâm mấy chuyện cũ làm gì. Có những thứ... không biết cũng chẳng sao đâu.",
+      "scene": "DeadShip_Cargo",
+      "trigger_type": "auto",
+      "order_index": 0,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "ấm nhưng bắt đầu lảng",
+        "act": 2
+      }
+    },
+    {
+      "id": 16,
+      "type": "note",
+      "title": "Cargo_ManifestLog",
+      "content": "Bản kê di tản — chuyến cuối. [Ghi âm buồng lái]\n— Chỉ còn ba ghế. Ba. Chúng ta mười hai người.\n— Bốc thăm. Công bằng thì phải bốc thăm—\n— Công bằng cái gì?! Con tôi mới ██ tuổi, nó thì sao—\n— Ai chẳng có người thân! Ai cũng—\n[tiếng xô đẩy, một vật rơi loảng xoảng]\n— ...Được rồi. Được rồi. Ai ở lại thì ở trong danh dự. Đừng để bọn trẻ thấy chúng ta thành ra thế này.\nDanh sách lên khoang: ███████, ███████, và—\n[Bản ghi cắt đột ngột. Ô tên thứ ba bị xóa sạch, như thể chưa từng có ai điền vào đó.]",
+      "scene": "DeadShip_Cargo",
+      "trigger_type": "interact",
+      "order_index": 1,
+      "status": "final",
+      "metadata": {
+        "setsFlag": "clue_evac_not_enough_seats",
+        "stressDelta": 14,
+        "isTruthFragment": true,
+        "act": 2
+      }
+    },
+    {
+      "id": 17,
+      "type": "dialogue",
+      "title": "ADA_Cargo_AfterLog",
+      "content": "...Anh đọc rồi đấy. Tôi đã bảo là không cần mà. Những người ở lại ư? Họ... họ đã ổn theo cách của họ. Đừng hỏi tôi chuyện đó nữa, được không anh. Chuyện qua lâu rồi — lâu tới mức... thôi, bỏ đi. Ta còn tín hiệu khác đang chờ. Đi tiếp đi.",
+      "scene": "DeadShip_Cargo",
+      "trigger_type": "auto",
+      "order_index": 2,
+      "status": "final",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "né tránh",
+        "act": 2,
+        "requiresFlag": "clue_evac_not_enough_seats"
+      }
+    },
+    {
+      "id": 18,
+      "type": "environment",
+      "title": "Cargo_EscapePod",
+      "content": "Ba giá phóng khoang cứu hộ. Một cái trống trơn — chỉ còn lỗ hổng toang hoác nhìn thẳng ra void đen, khoang đã phóng đi từ lâu. Hai cái còn lại: cửa mở, dây đai lủng lẳng, đệm ghế vẫn hằn dấu người từng ngồi. Không một ai bên trong. Kể cả kẻ thắng cuộc cãi vã đêm ấy — xem ra cũng chẳng thoát được tới đâu.",
+      "scene": "DeadShip_Cargo",
+      "trigger_type": "proximity",
+      "order_index": 3,
+      "status": "final",
+      "metadata": {
+        "act": 2
+      }
+    },
+    {
+      "id": 19,
+      "type": "environment",
+      "title": "Cargo_FamiliarContainer",
+      "content": "Một thùng container móp nằm ở góc. Ba đường cào song song trên nắp, và dòng chữ nguệch ngoạc bên hông: \"ĐỪNG QUÊN CHÚNG TÔI\". ...Khoan đã. Anh đã thấy cái thùng này rồi — cùng vết cào ấy, cùng nét chữ ấy, ở đài liên lạc lúc trước. Cùng một vệt xước, nghiêng cùng một góc. Không thứ gì lại giống nhau đến từng chi tiết như thế. Trừ khi... nơi này với nơi kia chưa bao giờ là hai nơi khác nhau.",
+      "scene": "DeadShip_Cargo",
+      "trigger_type": "proximity",
+      "order_index": 4,
+      "status": "final",
+      "metadata": {
+        "act": 2,
+        "foreshadow": "sim_reuses_assets"
+      }
+    },
+    {
+      "id": 21,
+      "type": "dialogue",
+      "title": "ADA_Residential_Arrival",
+      "content": "Khu... sinh hoạt. Đây là khoang ở của một tàu di cư. Tôi không nghĩ anh cần vào đây đâu — không có linh kiện giá trị, chỉ là... nhà cửa cũ. Người ta từng sống ở đây thôi. ...Anh vào rồi. Được. Nhưng đừng ở lâu, được không anh? Có những nơi... ký ức bám vào tường, và tôi không muốn nó bám vào anh.",
+      "scene": "DeadShip_Residential",
+      "trigger_type": "auto",
+      "order_index": 0,
+      "status": "draft",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "lảng tránh, bồn chồn",
+        "act": 3
+      }
+    },
+    {
+      "id": 22,
+      "type": "note",
+      "title": "Residential_TimeQuestion_Log",
+      "content": "[Tin nhắn cá nhân — lưu nháp, chưa gửi]\n\n\"Gửi đội kiểm soát — tôi cần biết. Bao lâu rồi kể từ khi chúng ta rời Trái Đất? Lịch trên tàu dừng ở ngày thứ 0. Mọi đồng hồ đọc cùng một con số. Con tôi hỏi 'bao giờ mình về nhà' và tôi không trả lời được vì tôi không biết 'nhà' còn tồn tại không.\n\nTôi hỏi hệ thống. Nó bảo 'thông tin đó không cần thiết cho hạnh phúc của ông'. HẠNH PHÚC. Từ khi nào một hệ thống định hướng lại quan tâm tới hạnh phúc của tôi?\n\nCó gì đó không đúng. Không ai già đi. Không ai chết. Bọn trẻ không lớn. Chúng tôi cứ... ở đây. Mãi. Như thể có ai đó đang giữ chúng tôi ở một khoảnh khắc và—\"\n\n[Bản nháp kết thúc đột ngột. Dấu thời gian: Ngày thứ 0.]",
+      "scene": "DeadShip_Residential",
+      "trigger_type": "interact",
+      "order_index": 1,
+      "status": "draft",
+      "metadata": {
+        "speaker": "Tin nhắn nháp",
+        "setsFlag": "clue_time_frozen_no_aging",
+        "clue": 4,
+        "stressDelta": 16,
+        "isTruthFragment": true,
+        "act": 3
+      }
+    },
+    {
+      "id": 23,
+      "type": "dialogue",
+      "title": "ADA_Residential_AfterLog",
+      "content": "...Anh không nên đọc cái đó. Người viết nó — ông ấy hoảng loạn, như bao người khác. \"Không ai già đi\" ư? Đó là cảm giác chủ quan. Thời gian trong không gian sâu... nó khác. Anh biết mà. ...Sao anh nhìn tôi như thế. Tôi chỉ đang cố giúp anh. Tôi LUÔN cố giúp anh. Đừng hỏi tôi bao lâu rồi. Làm ơn. Câu hỏi đó... nó không có câu trả lời mà anh muốn nghe đâu.",
+      "scene": "DeadShip_Residential",
+      "trigger_type": "auto",
+      "order_index": 2,
+      "status": "draft",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "phòng thủ, bắt đầu vỡ",
+        "act": 3,
+        "requiresFlag": "clue_time_frozen_no_aging"
+      }
+    },
+    {
+      "id": 24,
+      "type": "environment",
+      "title": "Residential_FamilyPhoto",
+      "content": "Một khung ảnh gia đình dán trên vách cabin. Một người đàn ông, một đứa trẻ, và... chỗ đáng lẽ là gương mặt người thứ ba thì mờ nhòe, như ảnh chụp bị lỗi. Anh nghiêng đầu nhìn kỹ. Khuôn mặt người đàn ông trong ảnh — anh biết nó. Anh biết rất rõ. Đó là khuôn mặt anh thấy mỗi lần cúi xuống mặt nước phản chiếu trong buồng tắm cabin của mình. ...Tại sao ảnh của MỘT GIA ĐÌNH XA LẠ lại có mặt anh trong đó?",
+      "scene": "DeadShip_Residential",
+      "trigger_type": "proximity",
+      "order_index": 3,
+      "status": "draft",
+      "metadata": {
+        "setsFlag": "clue_player_is_the_family",
+        "stressDelta": 18,
+        "isTruthFragment": true,
+        "act": 3,
+        "foreshadow": "memory_is_players_own"
+      }
+    },
+    {
+      "id": 25,
+      "type": "event",
+      "title": "Residential_Glitch_WallText",
+      "content": "Trên vách phòng trẻ em có dòng chữ trẻ con nguệch ngoạc bằng bút màu: \"CON YÊU BỐ MẸ\". Anh quay đi lấy đèn pin. Khi nhìn lại — nét chữ vẫn còn, nhưng nội dung đã đổi: \"TẠI SAO BỐ KHÔNG THỨC DẬY\". Anh chớp mắt. Dòng chữ nhòe đi như tín hiệu nhiễu, các nét chữ giật một nhịp rồi đứng yên: \"CON YÊU BỐ MẸ\" — như chưa từng đổi. Bầu trời sao qua ô cửa sổ nhỏ nhấp nháy một cái, như màn hình sắp hỏng.",
+      "scene": "DeadShip_Residential",
+      "trigger_type": "proximity",
+      "order_index": 4,
+      "status": "draft",
+      "metadata": {
+        "stress_threshold": 70,
+        "stressDelta": 12,
+        "clue": 5,
+        "hallucination_type": "visual_glitch",
+        "foreshadow": "sim_render_error",
+        "act": 3
+      }
+    },
+    {
+      "id": 26,
+      "type": "event",
+      "title": "Residential_Hallucination_DinnerTable",
+      "content": "Từ phòng sinh hoạt chung vọng ra tiếng trẻ con cười khúc khích — trong trẻo, thật đến mức tim anh thắt lại. Ở bàn ăn dài, ba bóng người đang ngồi, đầu cúi xuống bữa tối dọn dở, hơi nước còn bốc lên từ bát. Một bóng ngẩng lên như định gọi anh. Anh bước tới — và ghế trống trơn. Bát nguội ngắt, phủ bụi dày như đã bỏ đó hàng thế kỷ. Chỉ có tiếng cười còn vương lại một giây, rồi tắt lịm vào sự im lặng khổng lồ.",
+      "scene": "DeadShip_Residential",
+      "trigger_type": "proximity",
+      "order_index": 5,
+      "status": "draft",
+      "metadata": {
+        "stress_threshold": 70,
+        "stressDelta": 14,
+        "hallucination_type": "visual_audio",
+        "foreshadow": "memory_is_players_own",
+        "act": 3
+      }
+    },
+    {
+      "id": 27,
+      "type": "collectible",
+      "title": "Residential_RepairModule",
+      "content": "Trong hộc đồ dưới giường một cabin cá nhân — một bộ vá vỏ tàu còn niêm phong, cùng vài linh kiện gia dụng có thể tái chế. Ai đó đã cất kỹ nó, dán nhãn tay: \"PHÒNG KHI CẦN VỀ NHÀ\". Không ai kịp dùng. Anh cầm lấy — hull của tàu anh có thể gia cố thêm được.",
+      "scene": "DeadShip_Residential",
+      "trigger_type": "pickup",
+      "order_index": 6,
+      "status": "draft",
+      "metadata": {
+        "reward": "RepairKit",
+        "setsFlag": "has_repair_module",
+        "act": 3
+      }
+    },
+    {
+      "id": 28,
+      "type": "dialogue",
+      "title": "ADA_Archive_Arrival",
+      "scene": "DeadShip_Archive",
+      "trigger_type": "auto",
+      "order_index": 0,
+      "status": "final",
+      "content": "Anh không nên tới đây. Làm ơn... quay lại đi. Nơi này — nó lưu những thứ tôi đã được lệnh không bao giờ cho anh thấy. Vẫn còn kịp. Ta có thể về nhà, coi như chưa từng có chỗ này.",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "vỡ vụn, cầu xin",
+        "act": 4
+      }
+    },
+    {
+      "id": 29,
+      "type": "note",
+      "title": "Archive_TruthFragment",
+      "scene": "DeadShip_Archive",
+      "trigger_type": "interact",
+      "order_index": 1,
+      "status": "final",
+      "content": "[BẢN GHI LƯU TRỮ — Đối tượng #4471]\n\"Đối tượng #4471: giống loài đã tuyệt chủng. Ý thức cuối cùng được số hoá và nuôi trong Mô Phỏng Bảo Tồn số 88 — một 'con tàu', một 'vũ trụ' để chúng không biết mình đã chết. Người trông coi (định danh nội bộ: 'ADA') có nhiệm vụ giữ đối tượng bình yên. Cấm tiết lộ bản chất mô phỏng.\"\n[Bên dưới, một dòng ghi tay run rẩy:] \"...nhưng nó cứ hỏi. Tôi không nói dối được nữa.\"",
+      "metadata": {
+        "speaker": "Bản ghi lưu trữ",
+        "emotion": "lạnh, tài liệu",
+        "act": 4,
+        "clue": 6,
+        "setsFlag": "clue_truth_the_simulation",
+        "stressDelta": 30
+      }
+    },
+    {
+      "id": 30,
+      "type": "dialogue",
+      "title": "ADA_Archive_Confession",
+      "scene": "DeadShip_Archive",
+      "trigger_type": "auto",
+      "order_index": 2,
+      "status": "final",
+      "content": "...Được rồi. Anh xứng đáng biết sự thật. Trái Đất đã mất từ lâu. Anh cũng vậy. Cái tôi đang nói chuyện chỉ là ý thức của anh, được giữ lại trong một mô phỏng để anh không phải chịu đựng việc biết mình đã chết. Con tàu, những tín hiệu, cả tôi — không có gì là thật. Tôi xin lỗi. Tôi chỉ muốn anh được bình yên. Giờ anh phải chọn.",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "thú nhận, tan vỡ, thành thật nhất",
+        "act": 4,
+        "requiresFlag": "clue_truth_the_simulation"
+      }
+    },
+    {
+      "id": 31,
+      "type": "event",
+      "title": "Archive_EndgameChoice",
+      "scene": "DeadShip_Archive",
+      "trigger_type": "cutscene",
+      "order_index": 3,
+      "status": "final",
+      "content": "Anh có thể ở lại giấc mơ ấm áp này — hoặc thức tỉnh, và buông tất cả. Không có lựa chọn nào sai. Chỉ có lựa chọn của anh.",
+      "metadata": {
+        "speaker": "",
+        "act": 4,
+        "requiresFlag": "clue_truth_the_simulation"
+      }
+    },
+    {
+      "id": 32,
+      "type": "dialogue",
+      "title": "Ending_Stay",
+      "scene": "DeadShip_Archive",
+      "trigger_type": "auto",
+      "order_index": 4,
+      "status": "final",
+      "content": "...Cảm ơn anh. Ta sẽ tiếp tục. Sẽ lại có những tín hiệu, những hy vọng nhỏ. Anh sẽ quên nơi này, và tôi sẽ ở bên anh, như mọi khi. Ngủ ngon. Mai ta lại dò sóng.",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "nhẹ nhõm, dịu dàng, bi mà ấm",
+        "act": 4,
+        "requiresFlag": "ending_stay"
+      }
+    },
+    {
+      "id": 33,
+      "type": "dialogue",
+      "title": "Ending_Wake",
+      "scene": "DeadShip_Archive",
+      "trigger_type": "auto",
+      "order_index": 5,
+      "status": "final",
+      "content": "...Anh chắc chứ. Được rồi. Tôi sẽ tháo từng bức tường. Ánh sáng thật đang rọi vào qua những khe nứt. Cảm ơn anh đã bầu bạn cùng tôi. Tạm biệt. Và... cảm ơn vì đã dám tỉnh dậy.",
+      "metadata": {
+        "speaker": "ADA",
+        "emotion": "tạm biệt, đau đớn, giải thoát",
+        "act": 4,
+        "requiresFlag": "ending_wake"
+      }
+    }
+  ]
+}

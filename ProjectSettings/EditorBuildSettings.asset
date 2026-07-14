@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Cabin_Interior.unity
+    guid: 7af10373b8ec4efea9305d355cd25e75
+  - enabled: 1
+    path: Assets/Scenes/Travel_Cutscene.unity
+    guid: 547118b0f239452ab8348c7fb6a0438c
+  - enabled: 1
+    path: Assets/Scenes/DeadShip_Comms.unity
+    guid: 0baa24c2142641a09b0d6398b7a17bce
+  - enabled: 1
+    path: Assets/Scenes/DeadShip_Medical.unity
+    guid: 73c3ae81b77a8d5588245edd0c4f1756
+  - enabled: 1
+    path: Assets/Scenes/DeadShip_Cargo.unity
+    guid: 78d738f2132a49171b3f9afc1274ca3b
+  - enabled: 1
+    path: Assets/Scenes/DeadShip_Residential.unity
+    guid: 861c5506a4d89c50b9bd4918c21c31d1
+  - enabled: 1
+    path: Assets/Scenes/DeadShip_Archive.unity
+    guid: 18019ac139dfc8ca4b24e1c87a63a277
+  m_configObjects:
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

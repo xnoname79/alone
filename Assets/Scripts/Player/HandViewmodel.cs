@@ -18,22 +18,22 @@ namespace LastSignal.Player
     public class HandViewmodel : MonoBehaviour
     {
         [Header("Model tay (Exo Gray + clip Sit To Type)")]
-        [Tooltip("Đường dẫn FBX model người (rig Mixamo).")]
-        public string modelPath = "Assets/Models/Exo Gray.fbx";
-        [Tooltip("Đường dẫn FBX chứa animation clip ngồi-gõ.")]
-        public string clipPath = "Assets/Models/Exo Gray@Sit To Type.fbx";
-        [Tooltip("Tên clip bên trong file animation.")]
-        public string clipName = "Sit To Type";
+        [Tooltip("Prefab dưới Resources/ (dựng sẵn từ FBX, ẩn mặt/mắt/răng). Load runtime — chạy cả build.")]
+        public string modelResource = "Prefabs/ExoHands";
+        [Tooltip("Clip .anim dưới Resources/ (trích từ FBX 'Sit To Type').")]
+        public string clipResource = "Anim/SitToType";
 
         [Header("Đặt model so với camera (near-clip cắt thân)")]
-        [Tooltip("Vị trí model (local so với cameraHolder). Đã canh: chỉ tay lọt khung.")]
-        public Vector3 modelLocalPos = new Vector3(-0.03f, -0.88f, 0.03f);
+        [Tooltip("Vị trí model (local so với cameraHolder). Đã canh play-mode: tay lọt khung, đặt trên bàn.")]
+        public Vector3 modelLocalPos = new Vector3(-0.03f, -0.92f, 0.00f);
         public Vector3 modelLocalEuler = Vector3.zero;
+        [Tooltip("Scale model. Exo gốc ~1.96m (cả người); near-clip cắt thân, chỉ chừa tay.")]
+        public float modelScale = 1f;
         [Tooltip("Near-clip plane khi hiện tay — cắt đầu/thân model. Trả lại giá trị gốc khi ẩn.")]
         public float nearClipWhenVisible = 0.28f;
 
         [Header("Tông màu tay (găng/áo phi hành tối)")]
-        public Color handTint = new Color(0.30f, 0.26f, 0.24f);
+        public Color handTint = new Color(0.22f, 0.20f, 0.19f);
 
         private Camera _cam;
         private Transform _camHolder;
@@ -65,23 +65,18 @@ namespace LastSignal.Player
 
         bool TryBuildExoModel()
         {
-#if UNITY_EDITOR
-            var fbx = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(modelPath);
-            if (fbx == null) return false;
+            // Resources.Load: chạy CẢ trong build lẫn editor (không dùng AssetDatabase editor-only).
+            var prefab = Resources.Load<GameObject>(modelResource);
+            if (prefab == null) return false;
 
-            _model = (GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(fbx);
+            _model = Instantiate(prefab);
             _model.name = "ExoHands";
             _model.transform.SetParent(_camHolder, false);
             _model.transform.localPosition = modelLocalPos;
             _model.transform.localRotation = Quaternion.Euler(modelLocalEuler);
+            _model.transform.localScale = Vector3.one * modelScale;
 
-            // Nạp clip.
-            var all = UnityEditor.AssetDatabase.LoadAllAssetsAtPath(clipPath);
-            foreach (var a in all)
-            {
-                var c = a as AnimationClip;
-                if (c != null && c.name == clipName) { _clip = c; break; }
-            }
+            _clip = Resources.Load<AnimationClip>(clipResource);
             if (_clip == null) return false;
 
             // Bỏ Animator tự chạy (ta tự sample theo reach). Giữ component nhưng disable.
@@ -90,11 +85,6 @@ namespace LastSignal.Player
 
             TintRenderers(_model);
             return true;
-#else
-            // Build (không Editor): cần prefab ở Resources hoặc reference serialized.
-            // Bản prototype dùng Editor-time; runtime build sẽ fallback primitive.
-            return false;
-#endif
         }
 
         void TintRenderers(GameObject root)

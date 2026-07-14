@@ -1,5 +1,9 @@
 # The Last Signal — Tín Hiệu Cuối
 
+> ⚡ **Powered by [Unity Agent Orchestrator](https://github.com/xnoname79/unity-agent-orchestrator)** —
+> game này là **showcase** được dựng bởi một đội Claude AI agent headless (game-developer +
+> artist-director) phối hợp qua orchestrator, MCP điều phối narrative / scene / asset và Unity Editor.
+
 Game sinh tồn tâm lý ngoài không gian (walking-sim) về sự cô độc, hy vọng, và cái giá của sự thật.
 Unity 6 / URP.
 
@@ -31,3 +35,12 @@ Muốn mở project trong Unity và build lại:
 
 v1 — core loop hoàn chỉnh (Cabin → dò tín hiệu → khám phá xác tàu → về). 5 xác tàu,
 hệ Stress/Radar/Upgrade, 2 kết. Đang polish (viewmodel tay, viewport, narrative).
+
+## Powered by
+
+Toàn bộ game — code C#, scene 3D, narrative, art direction — được dựng bởi một đội
+**Claude AI agent headless** điều phối qua
+**[Unity Agent Orchestrator](https://github.com/xnoname79/unity-agent-orchestrator)**
+(*"A toolkit for building Unity 3D games with a team of headless Claude agents"*):
+agent-to-agent signaling, human approval, MCP đồng bộ narrative/scene/asset + Unity Editor.
+Dự án này là **showcase** cho orchestrator đó.

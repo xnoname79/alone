@@ -22,6 +22,7 @@ namespace LastSignal.Player
         public string modelResource = "Prefabs/ExoHands";
         [Tooltip("Clip .anim dưới Resources/ (trích từ FBX 'Sit To Type').")]
         public string clipResource = "Anim/SitToType";
+        const string clipName = "SitToType"; // tên state trong Animation (legacy) component
 
         [Header("Đặt model so với camera (near-clip cắt thân)")]
         [Tooltip("Vị trí model (local so với cameraHolder). Đã canh play-mode: tay lọt khung, đặt trên bàn.")]
@@ -39,6 +40,7 @@ namespace LastSignal.Player
         private Transform _camHolder;
         private GameObject _model;
         private AnimationClip _clip;
+        private Animation _legacyAnim; // sample clip legacy — chạy cả build (khác SampleAnimation non-legacy)
         private float _nearClipDefault;
         private float _reach;
         private bool _built;
@@ -83,6 +85,18 @@ namespace LastSignal.Player
             var animator = _model.GetComponent<Animator>();
             if (animator != null) animator.enabled = false;
 
+            // BẪY BUILD-vs-EDITOR: clip.SampleAnimation với clip NON-LEGACY chỉ chạy trong
+            // Editor; trong BUILD ném "Non-Legacy animations cannot be sampled outside the
+            // Editor without an Animator". Fix: đánh dấu clip legacy + dùng Animation (legacy)
+            // component sample — chạy cả build. (Ta drive tay thủ công theo reach, không cần
+            // Animator/state-machine.)
+            _clip.legacy = true;
+            _legacyAnim = _model.GetComponent<Animation>();
+            if (_legacyAnim == null) _legacyAnim = _model.AddComponent<Animation>();
+            _legacyAnim.AddClip(_clip, clipName);
+            _legacyAnim.playAutomatically = false;
+            _legacyAnim.Stop();
+
             TintRenderers(_model);
             return true;
         }
@@ -118,8 +132,20 @@ namespace LastSignal.Player
             if (!_built) return;
 
             if (_usingPrimitiveFallback) { ApplyPrimitivePose(); return; }
-            if (_model != null && _clip != null)
-                _clip.SampleAnimation(_model, _reach * _clip.length);
+            // Sample qua Animation (legacy) — set thời điểm clip theo reach rồi Sample().
+            // Chạy cả build (SampleAnimation non-legacy thì KHÔNG). Fix "tay không hiện trong build".
+            if (_legacyAnim != null && _clip != null)
+            {
+                var state = _legacyAnim[clipName];
+                if (state != null)
+                {
+                    state.enabled = true;
+                    state.weight = 1f;
+                    state.time = _reach * _clip.length;
+                    _legacyAnim.Sample();
+                    state.enabled = false;
+                }
+            }
         }
 
         /// <summary>Ẩn/hiện tay. Hiện: đặt near-clip cắt thân. Ẩn: trả near-clip gốc.</summary>

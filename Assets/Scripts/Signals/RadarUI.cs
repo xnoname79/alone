@@ -124,6 +124,10 @@ namespace LastSignal.Signals
                 return;
             }
             CloseRadar();
+            // Bước 3c-B: nhớ lời-hứa radar (shownDanger) vs sự thật (trueDanger) để ADA
+            // chống chế khi tới nơi nếu lệch lớn. Ghost không thật -> bỏ qua.
+            if (!report.signal.isGhost)
+                TravelController.SetPromise(report.shownDanger, report.signal.trueDanger);
             travel.TravelTo(report.signal);
         }
 

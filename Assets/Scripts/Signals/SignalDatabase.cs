@@ -85,7 +85,8 @@ namespace LastSignal.Signals
                 reportedDistance = DistanceLabel(shownDistance),
                 reportedDanger = DangerLabel(shownDanger),
                 aiComment = BuildComment(s, act, discourage),
-                aiDiscourages = discourage
+                aiDiscourages = discourage,
+                shownDanger = shownDanger
             };
         }
 

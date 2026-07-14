@@ -69,10 +69,6 @@ namespace LastSignal.Signals
             gs.resources.outsideCabin = true;
 
             ResolveDanger(s, gs);
-
-            // ponytail: Bước 3c phần B (ADA chống chế khi |shownDanger-trueDanger| lớn) hoãn.
-            // Cần cache reportedDanger lúc pick (static, sống qua load như PendingDestination)
-            // rồi so ở deadship arrival. Thêm khi muốn beat "radar đã sai" lộ ra mặt.
             OnTravelStarted?.Invoke(s);
 
             // Lưu đích TRƯỚC khi load cutscene: scene cabin (và TravelController này) bị
@@ -112,6 +108,37 @@ namespace LastSignal.Signals
         /// <summary>Scene đích đang chờ — Travel_Cutscene đọc giá trị này khi xong timeline.
         /// Là static để sống sót qua LoadScene(Single) (TravelController cũ đã bị huỷ).</summary>
         public static string PendingDestination { get; private set; }
+
+        // ---- Bước 3c phần B: "radar đã sai" lộ ra khi tới nơi ----
+        // Cache lời-hứa của radar (promised danger, 0..1) + danger thật lúc chọn tín hiệu.
+        // Static để sống qua LoadScene. ArrivalReactionDriver so 2 giá trị ở deadship arrival.
+        public static bool HasPromise { get; private set; }
+        public static float PromisedDanger { get; private set; }
+        public static float ActualDanger { get; private set; }
+
+        /// <summary>RadarUI gọi lúc người chơi CHỌN tín hiệu (trước TravelTo) — lưu lời hứa radar.</summary>
+        public static void SetPromise(float promisedDanger, float actualDanger)
+        {
+            PromisedDanger = promisedDanger;
+            ActualDanger = actualDanger;
+            HasPromise = true;
+        }
+
+        /// <summary>ArrivalReactionDriver gọi 1 lần ở deadship: trả câu ADA chống chế nếu radar
+        /// sai lệch lớn, else null. Consume promise (chỉ phản ứng 1 lần/chuyến).</summary>
+        public static string ConsumeMisleadLine()
+        {
+            if (!HasPromise) return null;
+            HasPromise = false;
+            float delta = ActualDanger - PromisedDanger; // >0: thực nguy hiểm hơn radar hứa
+            // Radar hứa an toàn nhưng thực nguy hiểm — beat "radar đã sai" cần lộ.
+            if (delta > 0.30f)
+                return "Tôi... xin lỗi. Bảng của tôi báo nơi này an toàn. Nhiễu ngoài kia mỗi lúc một dày — tôi không còn chắc mình đang đọc đúng nữa. Cẩn thận.";
+            // Radar hứa nguy hiểm nhưng thực an toàn — ADA tự trấn an (che giấu độ trôi).
+            if (delta < -0.30f)
+                return "Yên tâm. Tôi đã báo động hơi quá tay — nơi này ổn hơn tôi nghĩ. Đôi khi tôi... thận trọng thái quá.";
+            return null;
+        }
 
         /// <summary>Gọi từ cutscene khi xong: load scene xác tàu. Static để runner gọi không cần ref.</summary>
         public void ArriveAtPending() => ArriveAtPendingStatic();

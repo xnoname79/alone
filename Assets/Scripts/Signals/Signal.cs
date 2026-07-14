@@ -58,5 +58,6 @@ namespace LastSignal.Signals
         public string reportedDanger;   // "An toàn" / "Thận trọng" / "Nguy hiểm" — có thể sai
         public string aiComment;        // câu nhận xét của AI (theo act/trust)
         public bool aiDiscourages;      // AI cố can ngăn (gieo tò mò) -> tín hiệu thường chứa truth
+        public float shownDanger;       // danger RADAR HỨA (0..1, đã nhiễu) — so với trueDanger ở arrival
     }
 }

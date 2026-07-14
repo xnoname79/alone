@@ -295,7 +295,7 @@
       "scene": "DeadShip_Residential",
       "trigger_type": "auto",
       "order_index": 0,
-      "status": "draft",
+      "status": "final",
       "metadata": {
         "speaker": "ADA",
         "emotion": "lảng tránh, bồn chồn",
@@ -310,7 +310,7 @@
       "scene": "DeadShip_Residential",
       "trigger_type": "interact",
       "order_index": 1,
-      "status": "draft",
+      "status": "final",
       "metadata": {
         "speaker": "Tin nhắn nháp",
         "setsFlag": "clue_time_frozen_no_aging",
@@ -328,7 +328,7 @@
       "scene": "DeadShip_Residential",
       "trigger_type": "auto",
       "order_index": 2,
-      "status": "draft",
+      "status": "final",
       "metadata": {
         "speaker": "ADA",
         "emotion": "phòng thủ, bắt đầu vỡ",
@@ -344,7 +344,7 @@
       "scene": "DeadShip_Residential",
       "trigger_type": "proximity",
       "order_index": 3,
-      "status": "draft",
+      "status": "final",
       "metadata": {
         "setsFlag": "clue_player_is_the_family",
         "stressDelta": 18,
@@ -361,7 +361,7 @@
       "scene": "DeadShip_Residential",
       "trigger_type": "proximity",
       "order_index": 4,
-      "status": "draft",
+      "status": "final",
       "metadata": {
         "stress_threshold": 70,
         "stressDelta": 12,
@@ -379,7 +379,7 @@
       "scene": "DeadShip_Residential",
       "trigger_type": "proximity",
       "order_index": 5,
-      "status": "draft",
+      "status": "final",
       "metadata": {
         "stress_threshold": 70,
         "stressDelta": 14,
@@ -396,7 +396,7 @@
       "scene": "DeadShip_Residential",
       "trigger_type": "pickup",
       "order_index": 6,
-      "status": "draft",
+      "status": "final",
       "metadata": {
         "reward": "RepairKit",
         "setsFlag": "has_repair_module",

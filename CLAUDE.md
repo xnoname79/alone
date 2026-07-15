@@ -75,11 +75,6 @@ Setup: xem `docs/unity-mcp.md`.
 
 Luồng: plan (unity-dev) → build (unity-mcp) → screenshot → iterate → track (unity-dev).
 
-## Khi dựng / thiết kế môi trường 3D
-
-Invoke skill **`unity-environment-art`** — playbook art-direction đầy đủ (LOOK→
-CRITIQUE→ADJUST, lighting/atmosphere/post-processing/composition, recipe theo mood).
-
 ## Safety
 
 - Làm việc trong scene đã lưu; lưu tăng dần, đừng đè scene chính khi thử nghiệm.

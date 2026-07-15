@@ -94,3 +94,5 @@ crashlytics-build.properties
 .vscode/
 .idea/
 Thumbs.db
+
+.claude

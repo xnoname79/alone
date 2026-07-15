@@ -19,7 +19,7 @@ namespace LastSignal.Bootstrap
     /// (tâm điểm: 1 khoang đã phóng để lại lỗ hổng ra void + 2 khoang vỡ cửa mở).
     ///
     /// Hand-authored scene (buildEnvironmentAtRuntime=false mặc định):
-    /// môi trường/đèn/post-fx do artist-director dựng, Bootstrap bơm player + UI +
+    /// môi trường/đèn/post-fx do game-artist dựng, Bootstrap bơm player + UI +
     /// gameplay hooks qua hệ Anchor.
     ///
     /// Anchors (GameObject rỗng trong scene):
@@ -242,7 +242,7 @@ namespace LastSignal.Bootstrap
         // Khác BuildEscapePod (env luôn hiện): cái này GATE theo stress — bóng người
         // ngồi trong khoang, nhìn lại thì trống + tiếng cãi vã vọng rồi tắt. Radius nhỏ
         // hơn env (2.2 < 3.0) để mô tả trống hiện TRƯỚC, ảo giác đập vào khi lại gần.
-        // Audio cãi vã = pass sau (artist-director); giờ chỉ narration + cấu trúc.
+        // Audio cãi vã = pass sau (game-artist); giờ chỉ narration + cấu trúc.
         void BuildPodHallucination()
         {
             var el = _nd?.ByTitle("Cargo_Hallucination_Pod");
@@ -265,7 +265,7 @@ namespace LastSignal.Bootstrap
                 ? el.metadata.stressDelta : 10f;
             prox.setsFlag = el?.metadata?.foreshadow ?? "cargo_pod_hallucination";
 
-            // Visual (artist-director): bóng người ngồi glimpse ngoại biên, gate cùng stress.
+            // Visual (game-artist): bóng người ngồi glimpse ngoại biên, gate cùng stress.
             zone.AddComponent<LastSignal.Art.PodHallucinationVisual>();
         }
 

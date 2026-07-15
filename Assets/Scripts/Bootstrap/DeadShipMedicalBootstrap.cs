@@ -13,7 +13,7 @@ namespace LastSignal.Bootstrap
     /// manh mối "cơ thể đang phân rã" (gợi ý thế giới không thật).
     ///
     /// Hand-authored scene (buildEnvironmentAtRuntime=false mặc định):
-    /// môi trường/đèn/post-fx do artist-director dựng, Bootstrap bơm player + UI +
+    /// môi trường/đèn/post-fx do game-artist dựng, Bootstrap bơm player + UI +
     /// gameplay hooks qua hệ Anchor.
     ///
     /// Anchors (GameObject rỗng trong scene):

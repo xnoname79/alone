@@ -19,7 +19,7 @@ namespace LastSignal.Bootstrap
     /// Càng vào sâu glitch càng nặng. Mood "ẤM ÁP ĐÃ NGUỘI".
     ///
     /// Hand-authored scene (buildEnvironmentAtRuntime=false mặc định):
-    /// môi trường/đèn/post-fx do artist-director dựng, Bootstrap bơm player + UI +
+    /// môi trường/đèn/post-fx do game-artist dựng, Bootstrap bơm player + UI +
     /// gameplay hooks qua hệ Anchor.
     ///
     /// Anchors (GameObject rỗng trong scene):
@@ -265,7 +265,7 @@ namespace LastSignal.Bootstrap
                 ? el.metadata.stressDelta : 14f;
             prox.setsFlag = el?.metadata?.foreshadow ?? "memory_is_players_own";
 
-            // Visual (artist-director): bóng người ngồi glimpse ngoại biên, gate cùng stress.
+            // Visual (game-artist): bóng người ngồi glimpse ngoại biên, gate cùng stress.
             zone.AddComponent<LastSignal.Art.PodHallucinationVisual>();
         }
 

@@ -19,7 +19,7 @@ namespace LastSignal.Bootstrap
     ///   THỨC TỈNH (ending_wake) — buông tất cả → màn trắng dần + "HẾT".
     ///
     /// Hand-authored scene (buildEnvironmentAtRuntime=false): môi trường/đèn/post-fx do
-    /// artist-director dựng, Bootstrap bơm player + UI + gameplay hook và neo theo anchor.
+    /// game-artist dựng, Bootstrap bơm player + UI + gameplay hook và neo theo anchor.
     ///
     /// Anchors (GameObject rỗng trong scene):
     ///   Anchor_PlayerSpawn   — điểm spawn player (cửa vào)
